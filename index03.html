@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <!-- 文字の表示に必要なCSSスタイルを定義 -->
+    <style>
+      .falling-text {
+        /* 文字を絶対配置 */
+        position: absolute;
+        /* 文字の大きさ */
+        font-size: 20px;
+        /* 文字の落下アニメーション */
+        animation: falling-text linear infinite;
+        /* 文字の色 */
+        color: green;
+      }
+
+      /* 落下アニメーションの設定 */
+      @keyframes falling-text {
+        /* 落下開始位置 */
+        from {
+          transform: translateY(0);
+        }
+        /* 落下終了位置 */
+        to {
+          transform: translateY(100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // A～Zの数字字母の配列
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+
+      // ランダムな文字を取得
+      function getRandomLetter() {
+        return letters[Math.floor(Math.random() * letters.length)];
+      }
+
+      // 落下文字を生成
+      function createFallingText() {
+        // ランダムな文字を取得
+        const letter = getRandomLetter();
+
+        // 落下文字を表示する div 要素を生成
+        const div = document.createElement("div");
+        div.className = "falling-text";
+        div.textContent = letter;
+        // 落下文字の表示位置を設定
+        div.style.left = Math.random() * 100 + "vw";
+
+        // 落下文字をページに追加
+        document.body.appendChild(div);
+      }
+
+      // 定期的に落下文字生成処理を実行
+      setInterval(createFallingText, 50);
+    </script>
+  </body>
+</html>
