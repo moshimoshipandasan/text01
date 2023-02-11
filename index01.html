@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <style>
+      /* フォントサイズを 50px に指定 */
+      .falling-text {
+        position: absolute;
+        font-size: 50px;
+        /* 5秒間繰り返し動かすアニメーションを設定 */
+        animation: falling-text 5s infinite;
+      }
+
+      /* アニメーションの設定 */
+      @keyframes falling-text {
+        /* 開始時点 */
+        from {
+          /* Y軸方向に移動しない */
+          transform: translateY(0);
+        }
+        /* 終了時点 */
+        to {
+          /* Y軸方向に100%下に移動 */
+          transform: translateY(100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 文字を表示 -->
+    <div class="falling-text">A</div>
+  </body>
+</html>
